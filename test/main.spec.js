@@ -3,7 +3,7 @@ var expect = chai.expect;
 
 describe("The Address Book App", function () {
   
-  describe('Contact Service', function (){
+  describe('Contact Service', function () {
     beforeEach(function () {
       module('AddressBook')
       inject(function ($injector) {
@@ -24,7 +24,7 @@ describe("The Address Book App", function () {
 
   });
 
-  describe("Contact Controller", function (){
+  describe("Contact Controller", function () {
     
     beforeEach(function () {
       module("AddressBook");
@@ -46,4 +46,43 @@ describe("The Address Book App", function () {
     })
 
   });
+
+  describe("Proper Filter", function () {
+    beforeEach(function () {
+      module('AddressBook');
+      inject(function ($injector) {
+        proper = $injector.get('$filter')('proper');
+      })
+    })
+
+    it ("proper cases a string", function () {
+      expect(proper("ned stark")).to.equal('Ned Stark');
+      expect(proper("peter Griffin")).to.equal('Peter Griffin');
+      expect(proper("Lois Griffin")).to.equal('Lois Griffin');
+    });
+
+    it ("takes a number and return as a string", function () {
+      expect(proper(42)).to.equal('42');
+    });
+
+    it ("throws an error on an incompatible type", function () {
+      assert.throws(function () {
+        proper([1, 2, 3]);
+      })
+    });
+
+  })
+
 })
+
+
+
+
+
+
+
+
+
+
+
+
