@@ -4,9 +4,9 @@ var util = require('util');
 var app = express();
 
 var contacts = [
-  {named: "Peter"},
-  {named: "Lois"},
-  {named: "Stewie"}
+  {named: "Peter", email: 'peter@quahog.com'},
+  {named: "Lois", email: 'lois@quahog.com'},
+  {named: "Stewie", email: 'stewie@quahog.com'}
 ];
 
 app.get('/contacts', function (req, res) {
