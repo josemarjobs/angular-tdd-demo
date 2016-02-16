@@ -1,8 +1,13 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var karma = require('karma').server;
+var LiveServer = require('gulp-live-server');
 
-gulp.task('serve', function () {
+gulp.task('server', function () {
+  var live = new LiveServer('server.js');
+  live.start();
+})
+gulp.task('serve', ['server'], function () {
   browserSync.init({
     notify: false,
     port: 8080,
