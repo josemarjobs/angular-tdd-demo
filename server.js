@@ -8,7 +8,7 @@ app.use(cors());
 var contacts = [
   {name: "Peter", email: 'peter@quahog.com'},
   {name: "Lois", email: 'lois@quahog.com'},
-  {name: "Stewie", email: 'stewie@quahog.com'}
+  {name: "stewie", email: 'stewie@quahog.com'}
 ];
 
 app.get('/contacts', function (req, res) {

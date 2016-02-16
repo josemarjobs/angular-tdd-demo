@@ -10,7 +10,8 @@
   
   <div ng-controller="ContactController">
     <div ng-repeat="contact in contacts">
-      {{contact.name}}
+      {{contact.name | proper}}
+      <avatar name=contact.name />
     </div>
   </div>  
   <script src="main.js"></script>

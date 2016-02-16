@@ -73,6 +73,23 @@ describe("The Address Book App", function () {
 
   })
 
+  describe("Avatar Directive", function () {
+    beforeEach(function () {
+      module('AddressBook')
+    })
+
+    it ("displays the first letter of the name capitalized", function () {
+      inject(function ($rootScope, $compile) {
+        $rootScope.contact = {name: "peter"};
+        var element = $compile('<avatar name=contact.name/>')($rootScope);
+        $rootScope.$digest();
+        var directiveText = element.text();
+        expect(directiveText).to.equal("P");
+      });
+
+    });
+
+  })
 })
 
 
