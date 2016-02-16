@@ -1,12 +1,14 @@
 var express = require('express');
 var util = require('util');
+var cors = require('cors');
 
 var app = express();
+app.use(cors());
 
 var contacts = [
-  {named: "Peter", email: 'peter@quahog.com'},
-  {named: "Lois", email: 'lois@quahog.com'},
-  {named: "Stewie", email: 'stewie@quahog.com'}
+  {name: "Peter", email: 'peter@quahog.com'},
+  {name: "Lois", email: 'lois@quahog.com'},
+  {name: "Stewie", email: 'stewie@quahog.com'}
 ];
 
 app.get('/contacts', function (req, res) {

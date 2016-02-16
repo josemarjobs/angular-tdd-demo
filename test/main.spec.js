@@ -24,4 +24,26 @@ describe("The Address Book App", function () {
 
   });
 
+  describe("Contact Controller", function (){
+    
+    beforeEach(function () {
+      module("AddressBook");
+      inject(function ($injector, $rootScope) {
+        $scope = $rootScope.$new();
+        contactService = $injector.get('contactService');
+        $httpBackend = $injector.get('$httpBackend')
+        $controller = $injector.get('$controller');
+      });
+    });
+
+    it("stores an array of contacts in scope", function () {
+      $controller('ContactController', {
+        contactService: contactService,
+        $scope: $scope
+      });
+
+      assert.isArray($scope.contacts);
+    })
+
+  });
 })
